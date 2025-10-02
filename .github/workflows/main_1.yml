@@ -1,0 +1,26 @@
+name: running shell diff ways
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  shell-ex-using-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: using run
+        run: echo "hello"
+
+  shell-ex-using-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: using python
+        run: print("hellow from python")
+        shell: python
+
+  shell-ex-using-uses:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World Javascript Action by jairogomz
+        uses: jairogomz/hello-world-javascript-action-by-jairo@v1.0.1
+        with:
+          who-to-greet: "hi my name is harshith from javascript"
