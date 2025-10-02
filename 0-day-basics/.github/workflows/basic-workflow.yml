@@ -1,8 +1,7 @@
-name: Basic Workflow 
+name: Basic Workflow
 
-on: 
-  workflow_dispatch: 
-
+on:
+  workflow_dispatch:
 
 jobs:
   myfirst-github-action:
@@ -10,3 +9,4 @@ jobs:
     steps:
       - name: echo time && date
         run: data && uname -a
+
