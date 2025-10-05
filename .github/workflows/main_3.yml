@@ -6,6 +6,11 @@ on:
       - "main"
       - "feature/**"
       - "master/**"
+
+    paths:
+      - "**"
+      - "!*.md"
+      - "!doc/**"
     
     # branches-ignore:
     #   - "master/**"
