@@ -3,7 +3,7 @@ name: Triggers Events
 on:
   push:
     branches:
-      - "main"
+      # - "main"
       - "feature/**"
       - "master/**"
 
@@ -18,7 +18,7 @@ on:
 
   pull_request:
     branches: 
-     - "main"
+    #  - "main"
      - "master"
      - "feature"
      - "feature/**"
@@ -27,9 +27,9 @@ on:
       - opened
       - synchronize #updated
       - closed
-      - reopened
-      - labeled
-      - ready_for_review
+      # - reopened
+      # - labeled
+      # - ready_for_review
     paths: 
       - "**"
       - "!*.md"
@@ -41,10 +41,6 @@ on:
 
   workflow_dispatch:
   
-    
-    
-  
- 
 
 jobs: 
   STAGE-1:
