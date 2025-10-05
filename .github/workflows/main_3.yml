@@ -12,8 +12,9 @@ on:
       - synchronize
       - reopened
     paths: 
+      - "**"
       - "!*.md"
-      - "!doc/*"
+      - "!doc/**"
 
   schedule:
     - cron: "45 9 * * *"
@@ -29,4 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step-1"
-        run: echo "stage-1"
+        run: |
+          echo "stage-1"
+          date
+
