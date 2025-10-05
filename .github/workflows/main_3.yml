@@ -1,0 +1,32 @@
+name: Triggers Events
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths: 
+      - "!*.md"
+      - "!doc/*"
+
+  schedule:
+    - cron: "45 9 * * *"
+
+  workflow_dispatch:
+    
+    
+  
+ 
+
+jobs: 
+  STAGE-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step-1"
+        run: echo "stage-1"
