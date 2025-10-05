@@ -5,8 +5,9 @@ on:
     branches:
       - "main"
       - "feature/**"
-      - "!master"
-      - "!doc/**"
+    # branches-ignore:
+    #   - "master/**"
+    #   - "doc/**"
 
   pull_request:
     types:
