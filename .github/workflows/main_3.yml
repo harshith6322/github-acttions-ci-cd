@@ -3,8 +3,10 @@ name: Triggers Events
 on:
   push:
     branches:
-      - main
-      - master
+      - "main"
+      - "feature/**"
+      - "!master"
+      - "!doc/**"
 
   pull_request:
     types:
