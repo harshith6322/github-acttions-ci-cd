@@ -1,4 +1,4 @@
-name: running shell diff ways
+name: Shell Execution
 
 on:
   workflow_dispatch:

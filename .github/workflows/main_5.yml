@@ -1,0 +1,7 @@
+name: Passing Var && Secrets in Action
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  

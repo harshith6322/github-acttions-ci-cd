@@ -1,4 +1,4 @@
-name: ENV IN GITHUB ACTIONS
+name: Env In ACTIONS
 
 on: 
   workflow_dispatch:
