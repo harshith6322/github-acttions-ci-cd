@@ -1,7 +1,73 @@
-name: Passing Var && Secrets in Action
-
+name: Passing Variables Between jobs
 on:
   workflow_dispatch:
-    
+
 jobs:
-  
+  producer:
+    runs-on: ubuntu-24.04
+
+    outputs:
+      foo: ${{ steps.generate-foo.outputs.foo }}
+    steps:
+      - name: Generate and export foo
+        id: generate-foo
+        run: |
+          foo=bar
+
+          # 1) Step output (for job output)
+          echo "foo=${foo}" >> "$GITHUB_OUTPUT"
+
+          # 2) Job-scoped environment variable
+          echo "FOO=${foo}" >> "$GITHUB_ENV"
+
+      - name: Inspect values inside producer
+        run: |
+          echo "FOO (set via GITHUB_ENV):   $FOO"
+          echo "foo (step output):          ${{ steps.generate-foo.outputs.foo }}"
+
+  consumer:
+    runs-on: ubuntu-24.04
+    needs: producer
+    steps:
+      - name: Inspect values inside consumer (note FOO is unset)
+        run: |
+          echo "Value from producer:        ${{ needs.producer.outputs.foo }}"
+          echo "FOO in consumer:            ${FOO:-<UNSET>}"
+
+# name: Versioned Docker Build
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   # Job 1: Generate version
+#   generate-version:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       version: ${{ steps.set-version.outputs.version }}
+#     steps:
+#       - name: Set version
+#         id: set-version
+#         run: |
+#           # Generate a dynamic version number, e.g., 1.2.3
+#           version="1.2.$((RANDOM % 100))"
+#           echo "Generated version: $version"
+          
+#           # Step output
+#           echo "version=$version" >> "$GITHUB_OUTPUT"
+
+#   # Job 2: Build Docker using generated version
+#   build-docker:
+#     runs-on: ubuntu-latest
+#     needs: generate-version   # depends on first job
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Inspect version
+#         run: |
+#           echo "Version from previous job: ${{ needs.generate-version.outputs.version }}"
+
+#       - name: Build Docker image
+#         run: |
+#           docker build -t myapp:${{ needs.generate-version.outputs.version }} .
+#           echo "Docker image myapp:${{ needs.generate-version.outputs.version }} built successfully!"

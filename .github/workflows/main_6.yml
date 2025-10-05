@@ -1,0 +1,13 @@
+name: Secrets && Variables In Actions
+
+
+on:   
+  workflow_dispatch:
+    
+jobs:
+  runner-namespace:
+    runs-on: namespace-profile-default
+    steps:
+      - name: STEP-1
+        run: uname -a && pwd && ps aux && ifconfig
+  
