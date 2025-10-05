@@ -5,6 +5,8 @@ on:
     branches:
       - "main"
       - "feature/**"
+      - "master/**"
+    
     # branches-ignore:
     #   - "master/**"
     #   - "doc/**"
@@ -13,10 +15,14 @@ on:
     branches: 
      - "main"
      - "feature/**"
+     - "master/**"
     types:
       - opened
-      - synchronize
+      - synchronize #updated
+      - closed
       - reopened
+      - labeled
+      - ready_for_review
     paths: 
       - "**"
       - "!*.md"
@@ -26,6 +32,7 @@ on:
     - cron: "45 9 * * *"
 
   workflow_dispatch:
+  
     
     
   
