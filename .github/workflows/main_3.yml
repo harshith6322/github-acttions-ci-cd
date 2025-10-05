@@ -3,22 +3,41 @@ name: Triggers Events
 on:
   push:
     branches:
-      - main
-      - master
+      - "main"
+      - "feature/**"
+      - "master/**"
+
+    paths:
+      - "**"
+      - "!*.md"
+      - "!doc/**"
+    
+    # branches-ignore:
+    #   - "master/**"
+    #   - "doc/**"
 
   pull_request:
+    branches: 
+     - "main"
+     - "feature/**"
+     - "master/**"
     types:
       - opened
-      - synchronize
+      - synchronize #updated
+      - closed
       - reopened
+      - labeled
+      - ready_for_review
     paths: 
+      - "**"
       - "!*.md"
-      - "!doc/*"
+      - "!doc/**"
 
   schedule:
     - cron: "45 9 * * *"
 
   workflow_dispatch:
+  
     
     
   
@@ -29,4 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step-1"
-        run: echo "stage-1"
+        run: |
+          echo "stage-1"
+          date
+
