@@ -3,9 +3,9 @@ name: Passing Vars In Jobs
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "53 10 06 10 *"
-    - cron: "* * * * *"
+  # schedule:
+  #   - cron: "53 10 06 10 *"
+  #   - cron: "* * * * *"
 
     
 # env:
