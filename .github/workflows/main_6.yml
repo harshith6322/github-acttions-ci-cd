@@ -8,13 +8,13 @@ on:
   workflow_dispatch:
     
 jobs:
-  runner-namespace:
+  STAGE-0:
     runs-on: namespace-profile-default
     steps:
       - name: STEP-1
         run: uname -a && pwd && ps aux && ifconfig
   STAGE-1:
-    runs-on: namespace-profile-default
+    runs-on: self-hosted
     steps:
       - name: step-1
         run: echo "this is step-1"
@@ -26,7 +26,7 @@ jobs:
         run: echo "this is step-2"
   
   STAGE-3:
-    runs-on: namespace-profile-default
+    runs-on: self-hosted
     needs:
      - STAGE-4
     steps:
@@ -42,7 +42,7 @@ jobs:
         run: echo "this is step-4"
 
   STAGE-5:
-    runs-on: namespace-profile-default
+    runs-on: ubuntu-latest
     needs: 
      - STAGE-6
     steps:
@@ -50,11 +50,11 @@ jobs:
         run: echo "this is step-5"
 
   STAGE-6:
-    runs-on: namespace-profile-default
+    runs-on: self-hosted
     needs: 
       - STAGE-1
       - STAGE-2
-      - runner-namespace
+      - STAGE-0
     steps:
       - name: step-1
         run: echo "this is step-6"
