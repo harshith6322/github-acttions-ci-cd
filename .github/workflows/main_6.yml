@@ -1,4 +1,4 @@
-name: Secrets && Variables In Actions
+name: Own Runners
 
 
 on:
@@ -54,6 +54,7 @@ jobs:
     needs: 
       - STAGE-1
       - STAGE-2
+      - runner-namespace
     steps:
       - name: step-1
         run: echo "this is step-6"
