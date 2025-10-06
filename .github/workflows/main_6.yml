@@ -2,9 +2,9 @@ name: Secrets && Variables In Actions
 
 
 on:
-  push:
-    branches:
-      - main  
+  # push:
+    # branches:
+    #   - main  
   workflow_dispatch:
     
 jobs:
