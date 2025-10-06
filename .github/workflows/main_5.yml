@@ -20,6 +20,7 @@ jobs:
         id: set_my_name
         run: |
           echo "MYNAME=HARSHITH REDDY" >> "$GITHUB_OUTPUT"
+          echo "Current UTC time: $(date -u +'%H:%M:%S')"
     outputs:
       NAME: ${{ steps.set_my_name.outputs.MYNAME }}
       
