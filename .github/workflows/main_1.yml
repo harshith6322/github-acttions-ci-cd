@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: using run
         run: echo "hello"
+        shell: bash
 
   shell-ex-using-python:
     runs-on: ubuntu-latest
