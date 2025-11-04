@@ -1,27 +1,58 @@
-name: Shell Execution
+# name: Shell Execution
 
-on:
+# on:
+#   workflow_dispatch:
+    
+# jobs:
+#   shell-ex-using-run:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: using run
+#         run: echo "hello"
+#         shell: bash
+
+#   shell-ex-using-python:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: using python
+#         run: print("hellow from python")
+#         shell: python
+
+#   shell-ex-using-uses:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Hello World Javascript Action by jairogomz
+#         uses: jairogomz/hello-world-javascript-action-by-jairo@v1.0.1
+#         with:
+#           who-to-greet: "hi my name is harshith from javascript"
+
+
+name: diff shell
+
+on: 
   workflow_dispatch:
     
 jobs:
-  shell-ex-using-run:
+  bash:
     runs-on: ubuntu-latest
     steps:
-      - name: using run
-        run: echo "hello"
+      - name: step-1
+        run: echo "this is bash"
         shell: bash
 
-  shell-ex-using-python:
+  python:
     runs-on: ubuntu-latest
     steps:
-      - name: using python
-        run: print("hellow from python")
-        shell: python
-
-  shell-ex-using-uses:
+     - name: step-1
+       run: print("this from python")
+       shell: python
+       
+  usese: 
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World Javascript Action by jairogomz
-        uses: jairogomz/hello-world-javascript-action-by-jairo@v1.0.1
+      - name: step-1
+        uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d
         with:
-          who-to-greet: "hi my name is harshith from javascript"
+          who-to-greet: "from javascript "
+         
+ 
