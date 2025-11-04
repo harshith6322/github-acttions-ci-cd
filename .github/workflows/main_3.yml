@@ -41,6 +41,12 @@ on:
 
   workflow_dispatch:
   
+  workflow_run: 
+    workflows: ["Baisc Action Workflow"]
+    types:
+      - completed
+
+        
 
 jobs: 
   STAGE-1:
