@@ -1,51 +1,91 @@
-name: Wating for other steps to complete using {needs}
+# name: Wating for other steps to complete using {needs}
 
-on:
+# on:
+#   workflow_dispatch:
+  
+# jobs:
+#   myjob-1:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: step-1
+#         run: echo "this is step-1"
+
+#   myjob-2:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: step-1
+#         run: echo "this is step-2"
+  
+#   myjob-3:
+#     runs-on: ubuntu-latest
+#     needs:
+#      - myjob-4
+#     steps:
+#       - name: step-1
+#         run: echo "this is step-3"
+
+#   myjob-4:
+#     runs-on: ubuntu-latest
+#     needs:
+#       - myjob-5
+#     steps:
+#       - name: step-1
+#         run: echo "this is step-4"
+
+#   myjob-5:
+#     runs-on: ubuntu-latest
+#     needs: 
+#      - myjob-6
+#     steps:
+#       - name: step-1
+#         run: echo "this is step-5"
+
+#   myjob-6:
+#     runs-on: ubuntu-latest
+#     needs: 
+#       - myjob-1
+#       - myjob-2
+#     steps:
+#       - name: step-1
+#         run: echo "this is step-6"
+  
+
+
+name: new-needs
+
+
+on: 
   workflow_dispatch:
-  
+
 jobs:
-  myjob-1:
+  j1:
     runs-on: ubuntu-latest
     steps:
-      - name: step-1
-        run: echo "this is step-1"
-
-  myjob-2:
+      - name: job1
+        run:  echo "job1"
+  j2:
     runs-on: ubuntu-latest
     steps:
-      - name: step-1
-        run: echo "this is step-2"
-  
-  myjob-3:
+      - name: job2
+        run:  echo "job2"
+  j3:
     runs-on: ubuntu-latest
-    needs:
-     - myjob-4
     steps:
-      - name: step-1
-        run: echo "this is step-3"
-
-  myjob-4:
+      - name: job3
+        run:  echo "job3"
+  j4:
     runs-on: ubuntu-latest
-    needs:
-      - myjob-5
     steps:
-      - name: step-1
-        run: echo "this is step-4"
-
-  myjob-5:
+      - name: job4
+        run:  echo "job4"
+  j5:
     runs-on: ubuntu-latest
-    needs: 
-     - myjob-6
     steps:
-      - name: step-1
-        run: echo "this is step-5"
-
-  myjob-6:
+      - name: job5
+        run:  echo "job5"
+  j6:
     runs-on: ubuntu-latest
-    needs: 
-      - myjob-1
-      - myjob-2
     steps:
-      - name: step-1
-        run: echo "this is step-6"
-  
+      - name: job6
+        run:  echo "job6"
+    
