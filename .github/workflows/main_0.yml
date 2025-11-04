@@ -21,3 +21,7 @@ jobs:
     steps:
       - name: step-1
         run: echo "hi"
+      - name: step-2
+        run: sleep 10s
+      - name: step-3
+        run: pwd && uname -a && date && ps aux && last -a && 
