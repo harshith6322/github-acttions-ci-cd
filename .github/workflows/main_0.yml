@@ -1,27 +1,12 @@
-# name: Baisc Action Workflow
-
-# on:
-#   workflow_dispatch:
-    
-# jobs:
-#   myfirst-workflow:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Stage-1
-        # run:  uname -a && data && p aux && sudo apt install tree || true && tree
-
-name: workflow1
+name: Baisc Action Workflow
 
 on:
   workflow_dispatch:
     
 jobs:
-  myjob1:
+  myfirst-workflow:
     runs-on: ubuntu-latest
     steps:
-      - name: step-1
-        run: echo "hi"
-      - name: step-2
-        run: sleep 10s
-      - name: step-3
-        run: pwd && uname -a && date && ps aux && last -a 
+      - name: Stage-1
+        run:  uname -a && data && p aux && sudo apt install tree || true && tree
+
