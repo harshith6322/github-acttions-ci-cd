@@ -35,8 +35,8 @@ on:
       - "!*.md"
       - "!doc/**"
 
-  schedule:
-    - cron: "45 9 * * *"
+  # schedule:
+    # - cron: "45 9 * * *"
   #https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
 
   workflow_dispatch:
@@ -45,6 +45,11 @@ on:
     workflows: ["Baisc Action Workflow"]
     types:
       - completed 
+      # - in_progress
+      # - requested
+ 
+    
+
   issues:
     types:
       - opened
@@ -56,6 +61,7 @@ on:
 
 jobs: 
   STAGE-1:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: step-1"
@@ -66,4 +72,27 @@ jobs:
         run: |
           echo "=== $GITHUB_EVENT_NAME payload ==="
           cat "$GITHUB_EVENT_PATH"
+
+
+
+# IF conditions
+# jobs:
+#   build:
+        # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Run only on main branch
+#         if: ${{ github.ref == 'refs/heads/main' }}
+#         run: echo "This runs only on main"
+
+
+# loops
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node: [14, 16, 18]
+#     steps:
+#       - run: echo "Testing with Node.js ${{ matrix.node }}"
 
